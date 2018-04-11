@@ -1,0 +1,50 @@
+/*
+*  Connection and Communication protocol between smartphone and smart band
+*/
+
+hashfunction hash;
+
+usertype Key;
+usertype Timestamp;
+usertype SmartPhoneData;
+usertype SmartBandData;
+
+protocol pb(P,B)
+{
+	role P
+	{
+		const kir: Key;
+		fresh T1: Timestamp;
+		fresh T3: Timestamp;
+		fresh PhoneData: SmartPhoneData;
+		var T2: Timestamp;
+		var BandData: SmartBandData;
+		
+
+		send_1 (P, B, { T1, P}kir );
+		recv_2 (B, P, { T2, B, BandData}kir );
+		send_3 (P, B, {T3, P, PhoneData}kir);
+
+		claim_p1 (P, Secret, PhoneData);
+		claim_p2 (P, Secret, BandData);
+		claim_p3 (P, Secret, kir);
+	}
+
+	role B
+	{
+		const kir: Key;
+		var T1: Timestamp;
+		var T3: Timestamp;
+		var PhoneData: SmartPhoneData;
+		fresh T2: Timestamp;
+		fresh BandData: SmartBandData;
+		
+		recv_1( P, B, { T1, P}kir );
+		send_2 (B, P, { T2, B, BandData}kir );
+		recv_3 (P, B, {T3, P, PhoneData}kir);
+
+		claim_b1 (B, Secret, PhoneData);
+		claim_b2 (B, Secret, BandData);
+		claim_b3 (B, Secret, kir);
+	}
+}

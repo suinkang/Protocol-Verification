@@ -3,33 +3,22 @@ Scyther is an open source automated tool that demonstrates the security of the p
 You can download Scyther and get more information here.
 https://www.cs.ox.ac.uk/people/cas.cremers/scyther/
 
-
-
 # Protocol-Verification
 we verify 2 protocols using Scyther.
 
-pw.spdl
+### pw.spdl
 : Scyther code for verification of communication protocol between smart phone and web server.
 
++ PW: the user’s password
++ ID: the user’s ID
++ PhoneData: data transmitted from the smartphone to the web server
++ ServerData: data trans-mitted from the web server to the smartphone
++ kir: a symmetric key exchanged using the station-to-station protocol. 
 
-PW: the user’s password
-
-ID: the user’s ID
-
-PhoneData: data transmitted from the smartphone to the web server
-
-ServerData: data trans-mitted from the web server to the smartphone
-
-kir: a symmetric key exchanged using the station-to-station protocol. 
-
-
-pb.spdl
+### pb.spdl
 : Scyther code for verification of connection and communication protocol between smart phone and smart band.
 
-PhoneInfo: the smartphone identification information
-
-PhoneData: data transmitted from the smartphone to the smart band
-
-BandData: data transmitted from the smart band to the smartphone
-
-kir: the exchanged symmetric key.
++ PhoneInfo: the smartphone identification information
++ PhoneData: data transmitted from the smartphone to the smart band
++ BandData: data transmitted from the smart band to the smartphone
++ kir: the exchanged symmetric key.

@@ -3,9 +3,11 @@ Scyther is an open source automated tool that demonstrates the security of the p
 You can download Scyther and get more information here.
 https://www.cs.ox.ac.uk/people/cas.cremers/scyther/
 
-Protocol Verification Through Scyther
+
 
 # Protocol-Verification
+we verify 2 protocols using Scyther.
+
 pw.spdl
 : Scyther code for verification of communication protocol between smart phone and web server.
 
